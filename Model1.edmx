@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="press2009Model.Store" Provider="Npgsql" ProviderManifestToken="8.4.11" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="extrawyken2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="datum" Type="date" />
+          <Property Name="wykno" Type="int8" />
+          <Property Name="tydsduur" Type="bpchar" MaxLength="210" />
+          <Property Name="depot" Type="bpchar" MaxLength="220" />
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="discontinued" Type="bool" />
+          <Property Name="errorwijken" Type="bpchar" MaxLength="180" />
+        </EntityType>
+        <EntityType Name="persgroep">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="wykno" Type="int8" />
+          <Property Name="straatnaam" Type="bpchar" MaxLength="220" />
+          <Property Name="bndestem" Type="bpchar" MaxLength="220" />
+          <Property Name="telegraaf" Type="bpchar" MaxLength="220" />
+          <Property Name="algemeendagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="volkskrant" Type="bpchar" MaxLength="220" />
+          <Property Name="trouw" Type="bpchar" MaxLength="220" />
+          <Property Name="nederlandsdagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="nrcnext" Type="bpchar" MaxLength="220" />
+          <Property Name="financieeldagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="kidsweek" Type="bpchar" MaxLength="220" />
+          <Property Name="sevendays" Type="bpchar" MaxLength="220" />
+          <Property Name="bijzonderheden" Type="bpchar" MaxLength="200" />
+          <Property Name="id" Type="int4" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="discontinued" Type="bool" />
+        </EntityType>
+        <EntityType Name="persgroepoverzicht">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="date" Type="date" />
+          <Property Name="wykno" Type="int8" />
+          <Property Name="aantalbndestem" Type="int4" />
+          <Property Name="stuksprijsbndestem" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantaltelegraaf" Type="int4" />
+          <Property Name="stuksprijstelegraaf" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalad" Type="int4" />
+          <Property Name="stuksprijsad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalvolkskrant" Type="int4" />
+          <Property Name="stuksprijsvolkskrant" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantaltrouw" Type="int4" />
+          <Property Name="stuksprijstrouw" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalnederlandsdagblad" Type="int4" />
+          <Property Name="stuksprijsnederlandsdagblad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalnrcnext" Type="int4" />
+          <Property Name="stuksprijsnrcnext" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalfinancieeldagblad" Type="int4" />
+          <Property Name="stuksprijsfinancieeldagblad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalkidsweek" Type="int4" />
+          <Property Name="stuksprijskidsweek" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalsevendays" Type="int4" />
+          <Property Name="stuksprijssevendays" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="totaalbndestem" Type="int4" />
+          <Property Name="totaaltelegraaf" Type="int4" />
+          <Property Name="totaalad" Type="int4" />
+          <Property Name="totaalvolkskrant" Type="int4" />
+          <Property Name="totaaltrouw" Type="int4" />
+          <Property Name="totaalnederlandsdagblad" Type="int4" />
+          <Property Name="totaalnrcnext" Type="int4" />
+          <Property Name="totaalfinancieeldagblad" Type="int4" />
+          <Property Name="totaalkidsweek" Type="int4" />
+          <Property Name="totaalsevendays" Type="int4" />
+          <Property Name="totaalvergoedingen" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="totaaladjectieven" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="bijzonderhedenperiode" Type="bpchar" MaxLength="250" />
+          <Property Name="id" Type="int4" Nullable="false" />
+          <Property Name="discontinued" Type="bool" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'press2009.public.extrawyken' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="extrawyken">
+          <Property Name="datum" Type="date" />
+          <Property Name="wykno" Type="int8" />
+          <Property Name="tydsduur" Type="bpchar" MaxLength="210" />
+          <Property Name="depot" Type="bpchar" MaxLength="220" />
+          <Property Name="id" Type="int4" />
+          <Property Name="discontinued" Type="bool" />
+          <Property Name="errorwijken" Type="bpchar" MaxLength="180" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'press2009.public.persgroepoverzichtview' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="persgroepoverzichtview">
+          <Property Name="date" Type="date" />
+          <Property Name="wykno" Type="int8" />
+          <Property Name="aantalbndestem" Type="int4" />
+          <Property Name="stuksprijsbndestem" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantaltelegraaf" Type="int4" />
+          <Property Name="stuksprijstelegraaf" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalad" Type="int4" />
+          <Property Name="stuksprijsad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalvolkskrant" Type="int4" />
+          <Property Name="stuksprijsvolkskrant" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantaltrouw" Type="int4" />
+          <Property Name="stuksprijstrouw" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalnederlandsdagblad" Type="int4" />
+          <Property Name="stuksprijsnederlandsdagblad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalnrcnext" Type="int4" />
+          <Property Name="stuksprijsnrcnext" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalfinancieeldagblad" Type="int4" />
+          <Property Name="stuksprijsfinancieeldagblad" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalkidsweek" Type="int4" />
+          <Property Name="stuksprijskidsweek" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="aantalsevendays" Type="int4" />
+          <Property Name="stuksprijssevendays" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="totaalbndestem" Type="int4" />
+          <Property Name="totaaltelegraaf" Type="int4" />
+          <Property Name="totaalad" Type="int4" />
+          <Property Name="totaalvolkskrant" Type="int4" />
+          <Property Name="totaaltrouw" Type="int4" />
+          <Property Name="totaalnederlandsdagblad" Type="int4" />
+          <Property Name="totaalnrcnext" Type="int4" />
+          <Property Name="totaalfinancieeldagblad" Type="int4" />
+          <Property Name="totaalkidsweek" Type="int4" />
+          <Property Name="totaalsevendays" Type="int4" />
+          <Property Name="totaalvergoedingen" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="totaaladjectieven" Type="numeric" Precision="8" Scale="2" />
+          <Property Name="bijzonderhedenperiode" Type="bpchar" MaxLength="250" />
+          <Property Name="id" Type="int4" />
+          <Property Name="discontinued" Type="bool" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'press2009.public.persgroepview' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="persgroepview">
+          <Property Name="wykno" Type="int8" />
+          <Property Name="straatnaam" Type="bpchar" MaxLength="220" />
+          <Property Name="bn/destem" Type="bpchar" MaxLength="220" />
+          <Property Name="telegraaf" Type="bpchar" MaxLength="220" />
+          <Property Name="algemeen dagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="volkskrant" Type="bpchar" MaxLength="220" />
+          <Property Name="trouw" Type="bpchar" MaxLength="220" />
+          <Property Name="nederlands dagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="nrc next" Type="bpchar" MaxLength="220" />
+          <Property Name="financieel dagblad" Type="bpchar" MaxLength="220" />
+          <Property Name="kidsweek" Type="bpchar" MaxLength="220" />
+          <Property Name="sevendays" Type="bpchar" MaxLength="220" />
+          <Property Name="bijzonderheden" Type="bpchar" MaxLength="200" />
+          <Property Name="id" Type="int4" />
+          <Property Name="discontinued" Type="bool" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6005: The data type 'oid' is currently not supported for the target Entity Framework version; the column 'relfilenode' in the table 'press2009.public.pg_buffercache' was excluded.
+warning 6005: The data type 'oid' is currently not supported for the target Entity Framework version; the column 'reltablespace' in the table 'press2009.public.pg_buffercache' was excluded.
+warning 6005: The data type 'oid' is currently not supported for the target Entity Framework version; the column 'reldatabase' in the table 'press2009.public.pg_buffercache' was excluded.
+warning 6013: The table/view 'press2009.public.pg_buffercache' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="pg_buffercache">
+          <Property Name="bufferid" Type="int4" />
+          <Property Name="relblocknumber" Type="int8" />
+          <Property Name="isdirty" Type="bool" />
+          <Property Name="usagecount" Type="int2" />
+        </EntityType>-->
+        <EntityContainer Name="press2009ModelStoreContainer">
+          <EntitySet Name="extrawyken2" EntityType="Self.extrawyken2" Schema="public" store:Type="Tables" />
+          <EntitySet Name="persgroep" EntityType="Self.persgroep" Schema="public" store:Type="Tables" />
+          <EntitySet Name="persgroepoverzicht" EntityType="Self.persgroepoverzicht" Schema="public" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="press2009Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="extrawyken2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="datum" Type="DateTime" Precision="0" />
+          <Property Name="wykno" Type="Int64" />
+          <Property Name="tydsduur" Type="String" MaxLength="210" FixedLength="true" Unicode="true" />
+          <Property Name="depot" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="discontinued" Type="Boolean" />
+          <Property Name="errorwijken" Type="String" MaxLength="180" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="persgroep">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="wykno" Type="Int64" />
+          <Property Name="straatnaam" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="bndestem" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="telegraaf" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="algemeendagblad" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="volkskrant" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="trouw" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="nederlandsdagblad" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="nrcnext" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="financieeldagblad" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="kidsweek" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="sevendays" Type="String" MaxLength="220" FixedLength="true" Unicode="true" />
+          <Property Name="bijzonderheden" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="discontinued" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="persgroepoverzicht">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="wykno" Type="Int64" />
+          <Property Name="aantalbndestem" Type="Int32" />
+          <Property Name="stuksprijsbndestem" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantaltelegraaf" Type="Int32" />
+          <Property Name="stuksprijstelegraaf" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalad" Type="Int32" />
+          <Property Name="stuksprijsad" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalvolkskrant" Type="Int32" />
+          <Property Name="stuksprijsvolkskrant" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantaltrouw" Type="Int32" />
+          <Property Name="stuksprijstrouw" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalnederlandsdagblad" Type="Int32" />
+          <Property Name="stuksprijsnederlandsdagblad" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalnrcnext" Type="Int32" />
+          <Property Name="stuksprijsnrcnext" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalfinancieeldagblad" Type="Int32" />
+          <Property Name="stuksprijsfinancieeldagblad" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalkidsweek" Type="Int32" />
+          <Property Name="stuksprijskidsweek" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="aantalsevendays" Type="Int32" />
+          <Property Name="stuksprijssevendays" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="totaalbndestem" Type="Int32" />
+          <Property Name="totaaltelegraaf" Type="Int32" />
+          <Property Name="totaalad" Type="Int32" />
+          <Property Name="totaalvolkskrant" Type="Int32" />
+          <Property Name="totaaltrouw" Type="Int32" />
+          <Property Name="totaalnederlandsdagblad" Type="Int32" />
+          <Property Name="totaalnrcnext" Type="Int32" />
+          <Property Name="totaalfinancieeldagblad" Type="Int32" />
+          <Property Name="totaalkidsweek" Type="Int32" />
+          <Property Name="totaalsevendays" Type="Int32" />
+          <Property Name="totaalvergoedingen" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="totaaladjectieven" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="bijzonderhedenperiode" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="discontinued" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="press2009Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="extrawyken2" EntityType="Self.extrawyken2" />
+          <EntitySet Name="persgroep" EntityType="Self.persgroep" />
+          <EntitySet Name="persgroepoverzicht" EntityType="Self.persgroepoverzicht" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="press2009ModelStoreContainer" CdmEntityContainer="press2009Entities">
+          <EntitySetMapping Name="extrawyken2">
+            <EntityTypeMapping TypeName="press2009Model.extrawyken2">
+              <MappingFragment StoreEntitySet="extrawyken2">
+                <ScalarProperty Name="datum" ColumnName="datum" />
+                <ScalarProperty Name="wykno" ColumnName="wykno" />
+                <ScalarProperty Name="tydsduur" ColumnName="tydsduur" />
+                <ScalarProperty Name="depot" ColumnName="depot" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="discontinued" ColumnName="discontinued" />
+                <ScalarProperty Name="errorwijken" ColumnName="errorwijken" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persgroep">
+            <EntityTypeMapping TypeName="press2009Model.persgroep">
+              <MappingFragment StoreEntitySet="persgroep">
+                <ScalarProperty Name="wykno" ColumnName="wykno" />
+                <ScalarProperty Name="straatnaam" ColumnName="straatnaam" />
+                <ScalarProperty Name="bndestem" ColumnName="bndestem" />
+                <ScalarProperty Name="telegraaf" ColumnName="telegraaf" />
+                <ScalarProperty Name="algemeendagblad" ColumnName="algemeendagblad" />
+                <ScalarProperty Name="volkskrant" ColumnName="volkskrant" />
+                <ScalarProperty Name="trouw" ColumnName="trouw" />
+                <ScalarProperty Name="nederlandsdagblad" ColumnName="nederlandsdagblad" />
+                <ScalarProperty Name="nrcnext" ColumnName="nrcnext" />
+                <ScalarProperty Name="financieeldagblad" ColumnName="financieeldagblad" />
+                <ScalarProperty Name="kidsweek" ColumnName="kidsweek" />
+                <ScalarProperty Name="sevendays" ColumnName="sevendays" />
+                <ScalarProperty Name="bijzonderheden" ColumnName="bijzonderheden" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="discontinued" ColumnName="discontinued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persgroepoverzicht">
+            <EntityTypeMapping TypeName="press2009Model.persgroepoverzicht">
+              <MappingFragment StoreEntitySet="persgroepoverzicht">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="wykno" ColumnName="wykno" />
+                <ScalarProperty Name="aantalbndestem" ColumnName="aantalbndestem" />
+                <ScalarProperty Name="stuksprijsbndestem" ColumnName="stuksprijsbndestem" />
+                <ScalarProperty Name="aantaltelegraaf" ColumnName="aantaltelegraaf" />
+                <ScalarProperty Name="stuksprijstelegraaf" ColumnName="stuksprijstelegraaf" />
+                <ScalarProperty Name="aantalad" ColumnName="aantalad" />
+                <ScalarProperty Name="stuksprijsad" ColumnName="stuksprijsad" />
+                <ScalarProperty Name="aantalvolkskrant" ColumnName="aantalvolkskrant" />
+                <ScalarProperty Name="stuksprijsvolkskrant" ColumnName="stuksprijsvolkskrant" />
+                <ScalarProperty Name="aantaltrouw" ColumnName="aantaltrouw" />
+                <ScalarProperty Name="stuksprijstrouw" ColumnName="stuksprijstrouw" />
+                <ScalarProperty Name="aantalnederlandsdagblad" ColumnName="aantalnederlandsdagblad" />
+                <ScalarProperty Name="stuksprijsnederlandsdagblad" ColumnName="stuksprijsnederlandsdagblad" />
+                <ScalarProperty Name="aantalnrcnext" ColumnName="aantalnrcnext" />
+                <ScalarProperty Name="stuksprijsnrcnext" ColumnName="stuksprijsnrcnext" />
+                <ScalarProperty Name="aantalfinancieeldagblad" ColumnName="aantalfinancieeldagblad" />
+                <ScalarProperty Name="stuksprijsfinancieeldagblad" ColumnName="stuksprijsfinancieeldagblad" />
+                <ScalarProperty Name="aantalkidsweek" ColumnName="aantalkidsweek" />
+                <ScalarProperty Name="stuksprijskidsweek" ColumnName="stuksprijskidsweek" />
+                <ScalarProperty Name="aantalsevendays" ColumnName="aantalsevendays" />
+                <ScalarProperty Name="stuksprijssevendays" ColumnName="stuksprijssevendays" />
+                <ScalarProperty Name="totaalbndestem" ColumnName="totaalbndestem" />
+                <ScalarProperty Name="totaaltelegraaf" ColumnName="totaaltelegraaf" />
+                <ScalarProperty Name="totaalad" ColumnName="totaalad" />
+                <ScalarProperty Name="totaalvolkskrant" ColumnName="totaalvolkskrant" />
+                <ScalarProperty Name="totaaltrouw" ColumnName="totaaltrouw" />
+                <ScalarProperty Name="totaalnederlandsdagblad" ColumnName="totaalnederlandsdagblad" />
+                <ScalarProperty Name="totaalnrcnext" ColumnName="totaalnrcnext" />
+                <ScalarProperty Name="totaalfinancieeldagblad" ColumnName="totaalfinancieeldagblad" />
+                <ScalarProperty Name="totaalkidsweek" ColumnName="totaalkidsweek" />
+                <ScalarProperty Name="totaalsevendays" ColumnName="totaalsevendays" />
+                <ScalarProperty Name="totaalvergoedingen" ColumnName="totaalvergoedingen" />
+                <ScalarProperty Name="totaaladjectieven" ColumnName="totaaladjectieven" />
+                <ScalarProperty Name="bijzonderhedenperiode" ColumnName="bijzonderhedenperiode" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="discontinued" ColumnName="discontinued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
